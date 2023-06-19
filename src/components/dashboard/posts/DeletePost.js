@@ -3,7 +3,7 @@ import clientConfig from "../../../client-config";
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 
-const DeletePost = ({ postId, onDelete }) => {
+const DeletePost = ({ postId }) => {
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -20,8 +20,8 @@ const DeletePost = ({ postId, onDelete }) => {
         },
       })
       .then(() => {
-        // Call the onDelete callback to update the post list
-        onDelete(postId);
+        console.log("Post deleted:", postId);
+        window.location.reload();
       })
       .catch((err) => {
         console.error("Error deleting post:", err);
