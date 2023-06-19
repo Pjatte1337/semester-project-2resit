@@ -19,6 +19,10 @@ const DeletePost = ({ postId }) => {
           Authorization: `Bearer ${authToken}`,
         },
       })
+      .then(() => {
+        // Redirect to dashboard after successful deletion
+        window.location.href = "/dashboard";
+      })
       .catch((err) => {
         console.error("Error deleting post:", err);
       })
@@ -42,7 +46,8 @@ const DeletePost = ({ postId }) => {
 
   return (
     <div>
-      <Button className="btn btn-secondary float-right read-more-btn"
+      <Button
+        className="btn btn-secondary float-right read-more-btn"
         type="button"
         variant="danger"
         onClick={handleShowModal}
