@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DashboardLayout from "../../layouts/DashboardLayout";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import clientConfig from "../../../client-config";
@@ -21,22 +22,18 @@ const Posts = () => {
     setLoading(true);
     setError("");
 
-    fetch(`${wordPressSiteURL}/wp-json/wp/v2/posts/`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('No Posts Found');
+    axios
+      .get(`${wordPressSiteURL}/wp-json/wp/v2/posts/`)
+      .then((res) => {
+        if (res.status === 200) {
+          if (res.data.length) {
+            setPosts(res.data);
+          } else {
+            setError("No Posts Found");
+          }
         }
       })
-      .then((data) => {
-        if (data.length) {
-          setPosts(data);
-        } else {
-          setError('No Posts Found');
-        }
-      })
-      .catch((err) => setError(err.message))
+      .catch((err) => setError(err))
       .finally(() => setLoading(false));
   };
 
@@ -110,7 +107,7 @@ const Posts = () => {
       ) : (
         ""
       )}
-      {loading && <img className="loader" src={Loader} alt="Loader" />}
+            {loading && <img className="loader" src={Loader} alt="Loader" />}
     </DashboardLayout>
   );
 };
