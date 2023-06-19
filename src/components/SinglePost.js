@@ -15,7 +15,7 @@ const Post = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const wordPressSiteUrl = "http://pjatte1337.no";
+    const wordPressSiteUrl = "https://pjatte1337.no";
     console.log(id); // Log the value of id
     axios
       .get(`${wordPressSiteUrl}/wp-json/wp/v2/posts/${id}`)
