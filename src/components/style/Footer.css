@@ -1,19 +1,16 @@
 .footer {
-  background: #0ba4e1;
+  background-color: #50b8dc;
+  color: #fff;
   padding: 20px;
   text-align: center;
+  width: 100%;
 }
 
 .footer p {
-  margin: 0;
-  color: #000;
-}
-
-.footer a {
   color: #000;
   text-decoration: none;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 0; /* Remove any default margin */
 }
 
-.footer a:hover {
-  text-decoration: underline;
-}

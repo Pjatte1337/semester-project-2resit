@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { isLoggedIn } from "./functions";
 import AppContext from "./context/AppContext";
 import logoImage from "../assets/img/logo.png";
+import './style/Navbar.css';
 
 const Navbar = () => {
   const [store, setStore] = useContext(AppContext);
@@ -20,11 +21,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar my-navbar navbar-expand-lg main-navbar">
+    <nav className="navbar">
       <NavLink to="/" exact className="navbar-brand">
         <img src={logoImage} alt="Logo" className="logo-image" />
       </NavLink>
-      <ul className="navbar-nav my-navbar-nav mr-auto">
+      <ul className="nav-links">
         <li className="nav-item">
           <NavLink to="/" exact>
             Home
