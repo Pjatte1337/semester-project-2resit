@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import clientConfig from "../../../client-config";
 import Loader from "../../../assets/loader/loader.gif";
+import DeletePost from "../posts/DeletePost";
 
 const Posts = () => {
   const [loading, setLoading] = useState(false);
@@ -100,6 +101,7 @@ const Posts = () => {
                 >
                   Read More...
                 </Link>
+                <DeletePost postId={post.id} />
               </div>
             </div>
           ))}

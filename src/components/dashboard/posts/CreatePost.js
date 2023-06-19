@@ -10,6 +10,8 @@ const CreatePost = () => {
   const [postCreated, setPostCreated] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [titleError, setTitleError] = useState("");
+  const [contentError, setContentError] = useState("");
 
   const createMarkup = (data) => ({
     __html: data,
@@ -17,6 +19,16 @@ const CreatePost = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+
+    if (title.length < 5) {
+      setTitleError("Title must be at least 5 characters long.");
+      return;
+    }
+
+    if (content.length < 10) {
+      setContentError("Content must be at least 10 characters long.");
+      return;
+    }
 
     setLoading(true);
 
@@ -54,8 +66,10 @@ const CreatePost = () => {
 
     if (name === "title") {
       setTitle(value);
+      setTitleError(""); // Clear the title error when the user types
     } else if (name === "content") {
       setContent(value);
+      setContentError(""); // Clear the content error when the user types
     }
   };
 
@@ -87,6 +101,7 @@ const CreatePost = () => {
             className="form-control"
             id="title"
           />
+          {titleError && <div className="text-danger">{titleError}</div>}
         </div>
 
         <div className="form-group">
@@ -99,6 +114,7 @@ const CreatePost = () => {
             id="my-post-content"
             rows="10"
           />
+          {contentError && <div className="text-danger">{contentError}</div>}
         </div>
 
         <button type="submit" className="btn btn-secondary">

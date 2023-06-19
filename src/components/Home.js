@@ -60,6 +60,7 @@ const Home = () => {
 
   const filteredPosts = filterPosts();
 
+
   return (
     <>
       <Navbar />
