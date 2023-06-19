@@ -38,7 +38,6 @@ const DeletePost = ({ postId }) => {
   const handleConfirmDelete = () => {
     handleDeletePost();
     handleCloseModal();
-    window.location.reload(); // Refresh the page
   };
 
   return (
