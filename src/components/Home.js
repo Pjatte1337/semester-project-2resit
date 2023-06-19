@@ -104,7 +104,7 @@ const Home = () => {
                 />
               </div>
               <div className="card-footer">
-                <Moment fromNow>{post.date}</Moment>
+              <Moment format="MMMM Do, YYYY">{post.date}</Moment>
                 <Link
                   to={`/post/${post.id}`}
                   className="btn btn-secondary float-right read-more-btn"
