@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { NavLink as RouterNavLink } from 'react-router-dom';
 
 const NavLink = (props) => (
-  <Link
+  <RouterNavLink
     {...props}
-    getProps={() => ({})}
+    activeclassname="active"
     className="nav-link"
+    exact={props.exact ? "true" : undefined}
   />
 );
 

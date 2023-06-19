@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import clientConfig from "../../../client-config";
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
@@ -6,6 +7,7 @@ import { Modal, Button } from "react-bootstrap";
 const DeletePost = ({ postId }) => {
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleDeletePost = () => {
     setLoading(true);
@@ -21,7 +23,7 @@ const DeletePost = ({ postId }) => {
       })
       .then(() => {
         console.log("Post deleted:", postId);
-        window.location.reload();
+        navigate("/dashboard"); // Navigate to the dashboard route
       })
       .catch((err) => {
         console.error("Error deleting post:", err);
