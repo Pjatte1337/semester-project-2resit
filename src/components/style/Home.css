@@ -1,0 +1,83 @@
+.centered-heading {
+    text-align: center;
+    margin-top: 40px; /* Add margin-top to center the heading */
+  }
+  
+  .search-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .search-container input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .search-container input:focus {
+    outline: none;
+    border-color: #050505;
+  }
+  
+  .posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px; /* Add margin-top to center the posts */
+    margin-bottom: 40px; /* Add margin-top to center the posts */
+  }
+  
+  .card {
+    width: calc(50% - 10px);
+    margin-bottom: 40px;
+    margin-right: 20px;
+  }
+  
+  .card-header {
+    background-color: lightgray;
+    padding: 10px;
+  }
+  
+  .card-header a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .card-footer {
+    background-color: lightgray;
+    color: #000000;
+    padding: 15px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .read-more-btn {
+    background-color: #777;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .card-footer .btn {
+    text-decoration: none;
+    color: white;
+    background-color: #000000;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .loader {
+    display: block;
+    margin: 20px auto;
+  }
+  
