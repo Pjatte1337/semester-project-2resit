@@ -21,7 +21,7 @@ const DeletePost = ({ postId }) => {
       })
       .then(() => {
         // Redirect to dashboard after successful deletion
-        window.location.href = "/dashboard";
+        window.location.href = "/dashboard/posts";
       })
       .catch((err) => {
         console.error("Error deleting post:", err);
