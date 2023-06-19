@@ -23,7 +23,7 @@ const DeletePost = ({ postId }) => {
       })
       .then(() => {
         console.log("Post deleted:", postId);
-        navigate("/"); // Navigate to the dashboard route
+        navigate("/dashboard"); // Navigate to the dashboard route
       })
       .catch((err) => {
         console.error("Error deleting post:", err);
