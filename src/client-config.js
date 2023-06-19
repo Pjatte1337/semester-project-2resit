@@ -1,5 +1,5 @@
 const clientConfig = {
-	siteUrl: 'https://pjatte1337.no',
+	siteUrl: 'http://pjatte1337.no',
 };
 
 export default clientConfig;
