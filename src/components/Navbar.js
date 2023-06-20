@@ -22,12 +22,12 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <NavLink to="/" exact className="navbar-brand">
+      <NavLink to="/" exact="true" className="navbar-brand">
         <img src={logoImage} alt="Logo" className="logo-image" />
       </NavLink>
       <ul className="nav-links">
         <li className="nav-item">
-          <NavLink to="/" exact>
+          <NavLink to="/" exact="true">
             Home
           </NavLink>
         </li>
