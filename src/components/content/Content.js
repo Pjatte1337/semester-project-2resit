@@ -12,7 +12,6 @@ const Content = (props) => {
       {/* Main Content */}
       <div className="main-content">
         {props.children}
-        <p>adsadsad</p>
       </div>
     </div>
   );
