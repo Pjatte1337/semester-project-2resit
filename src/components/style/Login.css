@@ -1,0 +1,43 @@
+.center {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .login-card {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 80px;
+    height: 400px; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Added border-radius */
+    background-color: #fff;
+  }
+  
+  .card-title {
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-card-body {
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .btn-primary {
+    margin-top: 25px;
+    width: 100%;
+    transition: background-color 0.3s ease; /* Add transition for smooth effect */
+  }
+  
+  .btn-primary:hover {
+    background-color: #498054; /* Change background color on hover */
+  }
+  
+  

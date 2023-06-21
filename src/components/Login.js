@@ -4,6 +4,8 @@ import { Navigate } from 'react-router-dom';
 import Loader from '../assets/loader/loader.gif';
 import clientConfig from '../client-config';
 import AppContext from './context/AppContext';
+import "../components/style/Login.css";
+import Footer from './Footer';
 
 const Login = () => {
   const [store, setStore] = useContext(AppContext);
@@ -83,38 +85,45 @@ const Login = () => {
     return (
       <>
         <Navbar />
-        <div style={{ height: '100vh', maxWidth: '400px', margin: '0 auto' }}>
-          <h4 className="mb-4">Login</h4>
-          {error && <div className="alert alert-danger" dangerouslySetInnerHTML={createMarkup(error)} />}
-          <form onSubmit={onFormSubmit}>
-            <label className="form-group">
-              Username:
-              <input
-                type="text"
-                className="form-control"
-                name="username"
-                value={username}
-                onChange={handleOnChange}
-              />
-            </label>
-            <br />
-            <label className="form-group">
-              Password:
-              <input
-                type="password"
-                className="form-control"
-                name="password"
-                value={password}
-                onChange={handleOnChange}
-              />
-            </label>
-            <br />
-            <button className="btn btn-primary mb-3" type="submit">
-              Login
-            </button>
-            {loading && <img className="loader" src={Loader} alt="Loader" />}
-          </form>
+        <div className="center">
+          <h1>Welcome Back</h1>
+          <p>Login to share your knowledge with the world</p>
         </div>
+        <div className="login-card">
+          <div className="login-card-body">
+            <h4 className="login-card-title mb-4">Login</h4>
+            {error && <div className="alert alert-danger" dangerouslySetInnerHTML={createMarkup(error)} />}
+            <form onSubmit={onFormSubmit}>
+              <div className="form-group">
+                <label htmlFor="username">Username:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username"
+                  name="username"
+                  value={username}
+                  onChange={handleOnChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password">Password:</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={handleOnChange}
+                />
+              </div>
+              <button className="btn btn-primary mb-3" type="submit">
+                Login
+              </button>
+              {loading && <img className="loader" src={Loader} alt="Loader" />}
+            </form>
+          </div>
+        </div>
+        <Footer />
       </>
     );
   }

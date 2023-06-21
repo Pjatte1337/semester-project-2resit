@@ -4,6 +4,8 @@
   padding: 20px;
   text-align: center;
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 
 .footer p {
@@ -13,4 +15,3 @@
   font-size: 20px;
   margin: 0; /* Remove any default margin */
 }
-
