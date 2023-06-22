@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Api from "../api/constants";
-import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 
 const DeletePost = ({ postId }) => {
@@ -15,12 +14,12 @@ const DeletePost = ({ postId }) => {
     const wordPressSiteUrl = Api.siteUrl;
     const authToken = localStorage.getItem("token");
 
-    axios
-      .delete(`${wordPressSiteUrl}/wp-json/wp/v2/posts/${postId}`, {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      })
+    fetch(`${wordPressSiteUrl}/wp-json/wp/v2/posts/${postId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    })
       .then(() => {
         console.log("Post deleted:", postId);
         navigate("/dashboard"); // Navigate to the dashboard route

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from "axios";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import Api from "../api/constants";
@@ -23,15 +22,13 @@ const Posts = () => {
     setLoading(true);
     setError("");
 
-    axios
-      .get(`${wordPressSiteURL}/wp-json/wp/v2/posts/`)
-      .then((res) => {
-        if (res.status === 200) {
-          if (res.data.length) {
-            setPosts(res.data);
-          } else {
-            setError("No Posts Found");
-          }
+    fetch(`${wordPressSiteURL}/wp-json/wp/v2/posts/`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length) {
+          setPosts(data);
+        } else {
+          setError("No Posts Found");
         }
       })
       .catch((err) => setError(err))
