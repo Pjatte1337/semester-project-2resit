@@ -34,7 +34,6 @@ const Login = () => {
     };
 
     setLoginFields({ ...loginFields, loading: true });
-
     try {
       const response = await fetch(`${siteUrl}/wp-json/jwt-auth/v1/token`, {
         method: 'POST',

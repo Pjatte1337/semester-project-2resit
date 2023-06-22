@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import Moment from "react-moment";
 import "./style/SinglePost.css";
@@ -15,16 +14,23 @@ const Post = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const wordPressSiteUrl = "https://pjatte1337.no";
+    const wordPressSiteUrl = "https://www.joakimvanebo.info";
     console.log(id); // Log the value of id
-    axios
-      .get(`${wordPressSiteUrl}/wp-json/wp/v2/posts/${id}`)
-      .then((res) => {
-        setPost(res.data);
+
+    fetch(`${wordPressSiteUrl}/wp-json/wp/v2/posts/${id}`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+      .then((data) => {
+        setPost(data);
         setLoading(false);
       })
       .catch((error) => {
-        setError(error.response.data.message);
+        setError(error.message);
         setLoading(false);
       });
   }, [id]);

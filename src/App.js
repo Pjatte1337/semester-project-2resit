@@ -9,9 +9,6 @@ import CreatePost from './components/dashboard/posts/CreatePost';
 import AppProvider from './components/context/AppProvider';
 import Posts from './components/dashboard/posts/Posts';
 
-
-import Page from "./components/Page";
-
 class App extends React.Component {
   render() {
     return (
@@ -19,7 +16,6 @@ class App extends React.Component {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/page/:id" element={<Page />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/posts" element={<Posts />} />

@@ -9,7 +9,6 @@ import './style/GlobalStyle.css';
 import './style/Navbar.css';
 import './style/Home.css';
 import './style/Footer.css';
-import axios from "axios";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -27,18 +26,18 @@ const Home = () => {
     setLoading(true);
     setError('');
 
-    axios
-      .get(`${wordPressSiteURL}/wp-json/wp/v2/posts/`)
+    fetch(`${wordPressSiteURL}/wp-json/wp/v2/posts/`)
       .then((res) => {
-        if (res.status === 200) {
-          if (res.data.length) {
-            setPosts(res.data);
-          } else {
-            setError('No Posts Found');
-          }
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error('No Posts Found');
         }
       })
-      .catch((err) => setError(err))
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   };
 
@@ -59,7 +58,6 @@ const Home = () => {
   };
 
   const filteredPosts = filterPosts();
-
 
   return (
     <>
@@ -104,7 +102,7 @@ const Home = () => {
                 />
               </div>
               <div className="card-footer">
-              <Moment format="MMMM Do, YYYY">{post.date}</Moment>
+                <Moment format="MMMM Do, YYYY">{post.date}</Moment>
                 <Link
                   to={`/post/${post.id}`}
                   className="btn btn-secondary float-right read-more-btn"
