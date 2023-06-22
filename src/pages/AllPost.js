@@ -4,6 +4,7 @@ import Moment from "react-moment";
 import Api from "../api/constants";
 import Loader from "../assets/loader/loader.gif";
 import DeletePost from "./DeletePost";
+import UpdatePost from "./UpdatePost";
 import Navbar from "../components/Navbar";
 
 const Posts = () => {
@@ -100,6 +101,7 @@ const Posts = () => {
                   Read More...
                 </Link>
                 <DeletePost postId={post.id} />
+                <UpdatePost postId={post.id} />
               </div>
             </div>
           ))}
