@@ -1,17 +1,18 @@
 import React from "react";
-import DashboardLayout from "./../layouts/DashboardLayout";
-import { getUserName } from "../functions";
+import { getUserName } from "../components/functions";
+import Navbar from "../components/Navbar";
 
 const Dashboard = (props) => {
   const userName = getUserName() ? getUserName() : "";
 
   return (
-    <DashboardLayout>
+    <>
+      <Navbar /> {/* Render the navbar component */}
       <div className="center-content">
         {userName ? (
           <h2 className="welcome-heading">Welcome {userName}!!</h2>
         ) : (
-          ""
+          null
         )}
         <p>
           Hi, I'm Pjatte and I'm a software developer. I specialize in both
@@ -22,7 +23,7 @@ const Dashboard = (props) => {
           not coding, you'll find me exploring the world of technology, reading
           books and articles about the latest trends in software development.
         </p>
-		<p>
+        <p>
           Hi, I'm Pjatte and I'm a software developer. I specialize in both
           frontend and backend development, with a particular focus on web apps.
           My experience includes developing blogs, wikis, and other web
@@ -32,7 +33,7 @@ const Dashboard = (props) => {
           books and articles about the latest trends in software development.
         </p>
       </div>
-    </DashboardLayout>
+    </>
   );
 };
 

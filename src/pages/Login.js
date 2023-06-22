@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
 import { Navigate } from 'react-router-dom';
 import Loader from '../assets/loader/loader.gif';
-import clientConfig from '../client-config';
-import AppContext from './context/AppContext';
-import "../components/style/Login.css";
-import Footer from './Footer';
+import Api from '../api/constants';
+import AppContext from '../components/context/AppContext';
+import "../style/Login.css";
+import Footer from '../components/Footer';
 
 const Login = () => {
   const [store, setStore] = useContext(AppContext);
@@ -26,7 +26,7 @@ const Login = () => {
   const onFormSubmit = async (event) => {
     event.preventDefault();
 
-    const siteUrl = clientConfig.siteUrl;
+    const siteUrl = Api.siteUrl;
 
     const loginData = {
       username: loginFields.username,

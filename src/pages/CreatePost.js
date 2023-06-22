@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import DashboardLayout from "../../layouts/DashboardLayout";
-import Loader from "../../../assets/loader/loader.gif";
-import clientConfig from "../../../client-config";
-import axios from "axios";
+import Loader from "../assets/loader/loader.gif";
+import Api from "../api/constants";
+import Navbar from "../components/Navbar";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -38,26 +37,28 @@ const CreatePost = () => {
       status: "publish",
     };
 
-    const wordPressSiteUrl = clientConfig.siteUrl;
+    const wordPressSiteUrl = Api.siteUrl;
     const authToken = localStorage.getItem("token");
 
-    axios
-      .post(`${wordPressSiteUrl}/wp-json/wp/v2/posts`, formData, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`,
-        },
-      })
-      .then((res) => {
+    fetch(`${wordPressSiteUrl}/wp-json/wp/v2/posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
         setLoading(false);
-        setPostCreated(!!res.data.id);
-        setMessage(res.data.id ? "New post created" : "");
+        setPostCreated(!!data.id);
+        setMessage(data.id ? "New post created" : "");
         setTitle("");
         setContent("");
       })
       .catch((err) => {
         setLoading(false);
-        setMessage(err.response.data.message);
+        setMessage(err.message);
       });
   };
 
@@ -74,7 +75,8 @@ const CreatePost = () => {
   };
 
   return (
-    <DashboardLayout>
+    <>
+      <Navbar /> {/* Render the navbar component */}
       <form
         onSubmit={handleFormSubmit}
         className="mt-5"
@@ -84,12 +86,12 @@ const CreatePost = () => {
 
         {message ? (
           <div
-            className={`alert ${postCreated ? "alert-success" : "alert-danger"}`}
+            className={`alert ${
+              postCreated ? "alert-success" : "alert-danger"
+            }`}
             dangerouslySetInnerHTML={createMarkup(message)}
           />
-        ) : (
-          ""
-        )}
+        ) : null}
 
         <div className="form-group">
           <label htmlFor="title">Title</label>
@@ -122,7 +124,7 @@ const CreatePost = () => {
         </button>
         {loading && <img className="loader" src={Loader} alt="Loader" />}
       </form>
-    </DashboardLayout>
+    </>
   );
 };
 

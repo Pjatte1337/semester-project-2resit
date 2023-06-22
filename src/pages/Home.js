@@ -1,40 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import DashboardLayout from "../../layouts/DashboardLayout";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import Moment from "react-moment";
-import clientConfig from "../../../client-config";
-import Loader from "../../../assets/loader/loader.gif";
-import DeletePost from "../posts/DeletePost";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Loader from "../assets/loader/loader.gif";
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
+import Api  from "../api/constants";
+import '../style/GlobalStyle.css';
+import '../style/Navbar.css';
+import '../style/Home.css';
+import '../style/Footer.css';
 
-const Posts = () => {
+const Home = () => {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
-  const [error, setError] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [error, setError] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
   const fetchPosts = () => {
-    const wordPressSiteURL = clientConfig.siteUrl;
+    const wordPressSiteURL = Api.siteUrl;
 
     setLoading(true);
-    setError("");
+    setError('');
 
-    axios
-      .get(`${wordPressSiteURL}/wp-json/wp/v2/posts/`)
+    fetch(`${wordPressSiteURL}/wp-json/wp/v2/posts/`)
       .then((res) => {
-        if (res.status === 200) {
-          if (res.data.length) {
-            setPosts(res.data);
-          } else {
-            setError("No Posts Found");
-          }
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error('No Posts Found');
         }
       })
-      .catch((err) => setError(err))
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   };
 
@@ -43,8 +46,8 @@ const Posts = () => {
   };
 
   const filterPosts = () => {
-    if (searchQuery.trim() === "") {
-      return posts; // If search query is empty, return all posts
+    if (searchQuery.trim() === '') {
+      return posts;
     }
 
     const filteredPosts = posts.filter((post) =>
@@ -57,10 +60,17 @@ const Posts = () => {
   const filteredPosts = filterPosts();
 
   return (
-    <DashboardLayout>
+    <>
+      <Navbar />
       {error && (
-        <div className="alert alert-danger" dangerouslySetInnerHTML={{ __html: error }} />
+        <div
+          className="alert alert-danger"
+          dangerouslySetInnerHTML={{ __html: error }}
+        />
       )}
+      <div className="centered-heading">
+        <h1>Semester Project</h1>
+      </div>
       <div className="search-container mt-3">
         <input
           type="text"
@@ -75,13 +85,12 @@ const Posts = () => {
             <div
               key={post.id}
               className="card border-dark mb-3"
-              style={{ maxWidth: "50rem" }}
+              style={{ maxWidth: '50rem' }}
             >
               <div className="card-header">
                 <Link
                   to={`/post/${post.id}`}
                   className="text-secondary font-weight-bold"
-                  style={{ textDecoration: "none" }}
                 >
                   {post.title.rendered}
                 </Link>
@@ -93,25 +102,23 @@ const Posts = () => {
                 />
               </div>
               <div className="card-footer">
-                <Moment fromNow>{post.date}</Moment>
+                <Moment format="MMMM Do, YYYY">{post.date}</Moment>
                 <Link
                   to={`/post/${post.id}`}
-                  className="btn btn-secondary float-right"
-                  style={{ textDecoration: "none" }}
+                  className="btn btn-secondary float-right read-more-btn"
+                  style={{ textDecoration: 'none', marginRight: '10px' }}
                 >
                   Read More...
                 </Link>
-                <DeletePost postId={post.id} />
               </div>
             </div>
           ))}
         </div>
-      ) : (
-        ""
-      )}
-            {loading && <img className="loader" src={Loader} alt="Loader" />}
-    </DashboardLayout>
+      ) : null}
+      {loading && <img className="loader" src={Loader} alt="Loader" />}
+      <Footer />
+    </>
   );
 };
 
-export default Posts;
+export default Home;

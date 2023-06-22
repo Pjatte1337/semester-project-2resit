@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { isLoggedIn } from "./functions";
 import AppContext from "./context/AppContext";
 import logoImage from "../assets/img/logo.png";
-import './style/Navbar.css';
+import "../style/Navbar.css";
 
 const Navbar = () => {
   const [store, setStore] = useContext(AppContext);
@@ -33,6 +33,12 @@ const Navbar = () => {
         </li>
         {isLoggedIn() ? (
           <React.Fragment>
+            <li className="nav-item">
+              <NavLink to="/dashboard/posts">All Posts</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/dashboard/create-post">Create Post</NavLink>
+            </li>
             <li className="nav-item">
               <NavLink to="/dashboard">Dashboard</NavLink>
             </li>

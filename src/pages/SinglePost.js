@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import Moment from "react-moment";
-import "./style/SinglePost.css";
-import "./style/GlobalStyle.css";
-import "./style/Footer.css";
+import "../style/SinglePost.css";
+import "../style/GlobalStyle.css";
+import "../style/Footer.css";
 
 const Post = () => {
   const { id } = useParams();

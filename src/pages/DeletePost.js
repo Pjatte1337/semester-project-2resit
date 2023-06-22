@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import clientConfig from "../../../client-config";
+import Api from "../api/constants";
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 
@@ -12,7 +12,7 @@ const DeletePost = ({ postId }) => {
   const handleDeletePost = () => {
     setLoading(true);
 
-    const wordPressSiteUrl = clientConfig.siteUrl;
+    const wordPressSiteUrl = Api.siteUrl;
     const authToken = localStorage.getItem("token");
 
     axios
@@ -47,32 +47,34 @@ const DeletePost = ({ postId }) => {
   };
 
   return (
-    <div>
-      <Button
-        className="btn btn-secondary float-right read-more-btn"
-        type="button"
-        variant="danger"
-        onClick={handleShowModal}
-        disabled={loading}
-      >
-        {loading ? "Deleting..." : "Delete"}
-      </Button>
+    <>
+      <div>
+        <Button
+          className="btn btn-secondary float-right read-more-btn"
+          type="button"
+          variant="danger"
+          onClick={handleShowModal}
+          disabled={loading}
+        >
+          {loading ? "Deleting..." : "Delete"}
+        </Button>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Deletion</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to delete this post?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Cancel
-          </Button>
-          <Button variant="danger" onClick={handleConfirmDelete}>
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+        <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Confirm Deletion</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Are you sure you want to delete this post?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              Cancel
+            </Button>
+            <Button variant="danger" onClick={handleConfirmDelete}>
+              Delete
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    </>
   );
 };
 
