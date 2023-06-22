@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import Api from '../api/constants';
 import { Modal, Button } from 'react-bootstrap';
 import '../style/updatePost.css';
 
 const UpdatePost = ({ postId }) => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -47,14 +49,14 @@ const UpdatePost = ({ postId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     setLoading(true);
     setError('');
     setSuccessMessage('');
-  
+
     const wordPressSiteURL = Api.siteUrl;
     const authToken = localStorage.getItem('token');
-  
+
     fetch(`${wordPressSiteURL}/wp-json/wp/v2/posts/${postId}`, {
       method: 'PUT',
       headers: {
@@ -69,7 +71,7 @@ const UpdatePost = ({ postId }) => {
       .then((response) => {
         if (response.ok) {
           console.log('Post updated:', postId);
-          window.location.reload(); // Refresh the page to render the updated post
+          navigate.push('/dashboard'); // Navigate to the dashboard
         } else {
           throw new Error('Failed to update post');
         }
