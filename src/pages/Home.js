@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Loader from "../assets/loader/loader.gif";
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import Api  from "../api/constants";
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Loader from '../assets/loader/loader.gif';
+import Api from '../api/constants';
 import '../style/GlobalStyle.css';
 import '../style/Navbar.css';
 import '../style/Home.css';
@@ -79,7 +79,7 @@ const Home = () => {
           onChange={handleSearchChange}
         />
       </div>
-      {filteredPosts.length ? (
+      {filteredPosts.length > 0 && (
         <div className="mt-5 posts-container">
           {filteredPosts.map((post) => (
             <div
@@ -114,7 +114,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-      ) : null}
+      )}
       {loading && <img className="loader" src={Loader} alt="Loader" />}
       <Footer />
     </>
