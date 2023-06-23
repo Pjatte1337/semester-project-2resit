@@ -1,8 +1,9 @@
 import React from "react";
 import { getUserName } from "../components/functions";
 import Navbar from "../components/Navbar";
+import "../style/Profile.css"
 
-const Dashboard = (props) => {
+const Profile = (props) => {
   const userName = getUserName() ? getUserName() : "";
 
   return (
@@ -10,7 +11,7 @@ const Dashboard = (props) => {
       <Navbar /> {/* Render the navbar component */}
       <div className="center-content">
         {userName ? (
-          <h2 className="welcome-heading">Welcome {userName}!!</h2>
+          <h2 className="welcome-heading">Hello {userName}</h2>
         ) : (
           null
         )}
@@ -37,4 +38,4 @@ const Dashboard = (props) => {
   );
 };
 
-export default Dashboard;
+export default Profile;

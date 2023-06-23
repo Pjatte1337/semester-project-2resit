@@ -79,7 +79,7 @@ const Login = () => {
   const { username, password, error, loading } = loginFields;
 
   if (store.token) {
-    return <Navigate to="/dashboard" noThrow />;
+    return <Navigate to="/profile" noThrow />;
   } else {
     return (
       <>

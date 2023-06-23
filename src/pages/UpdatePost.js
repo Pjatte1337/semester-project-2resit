@@ -71,7 +71,7 @@ const UpdatePost = ({ postId }) => {
       .then((response) => {
         if (response.ok) {
           console.log('Post updated:', postId);
-          navigate('/dashboard'); // Navigate to the dashboard
+          navigate('/profile');
         } else {
           throw new Error('Failed to update post');
         }

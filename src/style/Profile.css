@@ -1,0 +1,18 @@
+/* Dashboard.css */
+
+.center-content {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.welcome-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+}

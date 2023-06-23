@@ -34,13 +34,13 @@ const Navbar = () => {
         {isLoggedIn() ? (
           <React.Fragment>
             <li className="nav-item">
-              <NavLink to="/dashboard/posts">All Posts</NavLink>
+              <NavLink to="/profile/posts">All Posts</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/dashboard/create-post">Create Post</NavLink>
+              <NavLink to="/profile/create-post">Create Post</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/dashboard">Dashboard</NavLink>
+              <NavLink to="/profile">Profile</NavLink>
             </li>
             <li className="nav-item">
               <a href="/" onClick={handleLogout}>Logout</a>
