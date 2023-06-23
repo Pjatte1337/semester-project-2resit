@@ -22,12 +22,12 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <NavLink to="/" exact="true" className="navbar-brand">
+      <NavLink to="/" exact className="navbar-brand">
         <img src={logoImage} alt="Logo" className="logo-image" />
       </NavLink>
       <ul className="nav-links">
         <li className="nav-item">
-          <NavLink to="/" exact="true">
+          <NavLink to="/" exact>
             Home
           </NavLink>
         </li>
@@ -43,7 +43,7 @@ const Navbar = () => {
               <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
             <li className="nav-item">
-              <button onClick={handleLogout} className="btn btn-primary mb-3" type="submit">Logout</button>
+              <a href="/" onClick={handleLogout}>Logout</a>
             </li>
           </React.Fragment>
         ) : (

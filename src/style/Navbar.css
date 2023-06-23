@@ -55,3 +55,7 @@
 .btn-primary:hover {
   background-color: #0056b3;
 }
+
+.nav-links .active {
+  text-decoration: underline;
+}

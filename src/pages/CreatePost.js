@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Loader from "../assets/loader/loader.gif";
 import Api from "../api/constants";
 import Navbar from "../components/Navbar";
+import "../style/CreatePost.css"; // Import the CSS file
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -76,54 +77,52 @@ const CreatePost = () => {
 
   return (
     <>
-      <Navbar /> {/* Render the navbar component */}
-      <form
-        onSubmit={handleFormSubmit}
-        className="mt-5"
-        style={{ maxWidth: "800px" }}
-      >
-        <legend className="mb-4">Create Post</legend>
+      <Navbar />
+      <div className="card create-post-card">
+        <div className="card-body">
+          <form onSubmit={handleFormSubmit}>
+            <legend className="create-post-title">Create Post</legend>
 
-        {message ? (
-          <div
-            className={`alert ${
-              postCreated ? "alert-success" : "alert-danger"
-            }`}
-            dangerouslySetInnerHTML={createMarkup(message)}
-          />
-        ) : null}
+            {message && (
+              <div
+                className={`alert ${postCreated ? "alert-success" : "alert-danger"}`}
+                dangerouslySetInnerHTML={createMarkup(message)}
+              />
+            )}
 
-        <div className="form-group">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={handleInputChange}
-            className="form-control"
-            id="title"
-          />
-          {titleError && <div className="text-danger">{titleError}</div>}
+            <div className="form-group">
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                name="title"
+                value={title}
+                onChange={handleInputChange}
+                className="form-control"
+                id="title"
+              />
+              {titleError && <div className="error-message">{titleError}</div>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="my-post-content">Content</label>
+              <textarea
+                name="content"
+                value={content}
+                onChange={handleInputChange}
+                className="form-control"
+                id="my-post-content"
+                rows="10"
+              />
+              {contentError && <div className="error-message">{contentError}</div>}
+            </div>
+
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+            {loading && <img className="loader" src={Loader} alt="Loader" />}
+          </form>
         </div>
-
-        <div className="form-group">
-          <label htmlFor="my-post-content">Content</label>
-          <textarea
-            name="content"
-            value={content}
-            onChange={handleInputChange}
-            className="form-control"
-            id="my-post-content"
-            rows="10"
-          />
-          {contentError && <div className="text-danger">{contentError}</div>}
-        </div>
-
-        <button type="submit" className="btn btn-secondary">
-          Submit
-        </button>
-        {loading && <img className="loader" src={Loader} alt="Loader" />}
-      </form>
+      </div>
     </>
   );
 };

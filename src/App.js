@@ -1,15 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from './pages/Login';
-import Dashboard from "../src/pages/Dashboard"
-import Home from '../src/pages/Home';
-import SinglePost from './pages/SinglePost';
-import CreatePost from './pages/CreatePost';
 import AppProvider from './components/context/AppProvider';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 import Posts from './pages/AllPost';
-
-
+import CreatePost from './pages/CreatePost';
+import SinglePost from './pages/SinglePost';
 
 class App extends React.Component {
   render() {
