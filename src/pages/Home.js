@@ -9,6 +9,7 @@ import '../style/GlobalStyle.css';
 import '../style/Navbar.css';
 import '../style/Home.css';
 import '../style/Footer.css';
+import '../style/Buttons.css';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -105,8 +106,7 @@ const Home = () => {
                 <Moment format="MMMM Do, YYYY">{post.date}</Moment>
                 <Link
                   to={`/post/${post.id}`}
-                  className="btn btn-secondary float-right read-more-btn"
-                  style={{ textDecoration: 'none', marginRight: '10px' }}
+                  className="btn-read-more "
                 >
                   Read More...
                 </Link>

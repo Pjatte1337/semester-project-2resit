@@ -1,0 +1,51 @@
+
+  
+  /* Modal Styles */
+  .custom-modal {
+    position: fixed;
+    top: 100px; /* Adjust this value to position the modal closer to the navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    display: block;
+  }
+  
+  .delete-modal-dialog {
+    background-color: #fff;
+    border: none;
+    width: 500px;
+   
+  }
+  
+  .delete-modal-header {
+    justify-content: center; /* Center the text horizontally */
+    border-bottom: 1px solid #dee2e6;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .delete-modal-title {
+    color: #000000;
+    font-weight: 500;
+  }
+  
+  .delete-modal-body {
+    padding: 20px;
+
+  }
+  
+  .delete-modal-footer {
+    border-top: none;
+    justify-content: flex-end;
+    height: auto;
+  }
+  
+  .delete-modal-footer button {
+    margin-left: 10px;
+    margin: 20px;
+  }
+
+  
+
+  
+

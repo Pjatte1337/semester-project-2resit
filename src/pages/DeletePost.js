@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Api from "../api/constants";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import "../style/DeletePost.css";
 
 const DeletePost = ({ postId }) => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ const DeletePost = ({ postId }) => {
     })
       .then(() => {
         console.log("Post deleted:", postId);
-        navigate("/profile"); 
+        navigate("/profile");
       })
       .catch((err) => {
         console.error("Error deleting post:", err);
@@ -48,29 +49,46 @@ const DeletePost = ({ postId }) => {
   return (
     <>
       <div>
-        <Button
-          className="btn btn-secondary float-right read-more-btn"
-          type="button"
-          variant="danger"
+        <button
+          className="btn-delete"
           onClick={handleShowModal}
           disabled={loading}
         >
           {loading ? "Deleting..." : "Delete"}
-        </Button>
+        </button>
 
-        <Modal show={showModal} onHide={handleCloseModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Confirm Deletion</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Are you sure you want to delete this post?</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
-              Cancel
-            </Button>
-            <Button variant="danger" onClick={handleConfirmDelete}>
-              Delete
-            </Button>
-          </Modal.Footer>
+        {showModal && (
+          <div className="modal-backdrop" onClick={handleCloseModal} />
+        )}
+
+        <Modal
+          show={showModal}
+          onHide={handleCloseModal}
+          className="custom-modal"
+          centered
+        >
+          <Modal.Dialog className="delete-modal-dialog">
+            <Modal.Header closeButton className="delete-modal-header">
+              <Modal.Title className="delete-modal-title">Confirm Deletion</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="delete-modal-body">Are you sure you want to delete this post?</Modal.Body>
+            <Modal.Footer className="delete-modal-footer">
+              <button
+                className="btn-delete-confirm"
+                variant="danger"
+                onClick={handleConfirmDelete}
+              >
+                Delete
+              </button>
+              <button
+                className="btn-delete-cancel"
+                variant="secondary"
+                onClick={handleCloseModal}
+              >
+                Cancel
+              </button>
+            </Modal.Footer>
+          </Modal.Dialog>
         </Modal>
       </div>
     </>

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Api from '../api/constants';
 import { Modal, Button } from 'react-bootstrap';
 import '../style/updatePost.css';
+import '../style/Buttons.css';
 
 const UpdatePost = ({ postId }) => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const UpdatePost = ({ postId }) => {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     const fetchPost = () => {
@@ -91,55 +93,69 @@ const UpdatePost = ({ postId }) => {
     setShowModal(false);
   };
 
+  const handleModalClick = (e) => {
+    if (e.target === modalRef.current) {
+      closeModal();
+    }
+  };
+
   const removePTags = (htmlString) => {
     return htmlString.replace(/<\/?p>/g, '').replace(/<br\s?\/?>/g, '\n');
   };
 
   return (
     <div>
-      <Button variant="primary" onClick={openModal}>
+      <button className="btn-update" onClick={openModal}>
         Edit
-      </Button>
+      </button>
 
-      <Modal
-        show={showModal}
-        onHide={closeModal}
-        dialogClassName="modal-auto"
-        contentClassName="modal-content"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Post</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {error && <div className="alert alert-danger">{error}</div>}
-          {successMessage && (
-            <div className="alert alert-success">{successMessage}</div>
-          )}
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                value={title}
-                onChange={handleTitleChange}
-                disabled={loading}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="content">Content</label>
-              <textarea
-                value={removePTags(content)}
-                onChange={handleContentChange}
-                disabled={loading}
-                rows="16"
-              />
-            </div>
-            <Button variant="primary" type="submit" disabled={loading}>
-              {loading ? 'Updating...' : 'Update'}
-            </Button>
-          </form>
-        </Modal.Body>
-      </Modal>
+      {showModal && (
+        <div className="modal-backdrop" onClick={handleModalClick}>
+          <Modal
+            show={showModal}
+            onHide={closeModal}
+            dialogClassName="modal-auto"
+            contentClassName="modal-content"
+            ref={modalRef}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Edit Post</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {error && <div className="alert alert-danger">{error}</div>}
+              {successMessage && (
+                <div className="alert alert-success">{successMessage}</div>
+              )}
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="title">Title</label>
+                  <input
+                    type="text"
+                    value={title}
+                    onChange={handleTitleChange}
+                    disabled={loading}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="content">Content</label>
+                  <textarea
+                    value={removePTags(content)}
+                    onChange={handleContentChange}
+                    disabled={loading}
+                    rows="16"
+                  />
+                </div>
+                <Button className="button" type="submit" disabled={loading}>
+                  {loading ? 'Updating...' : 'Update'}
+                </Button>
+                <Button className="button" onClick={closeModal} disabled={loading}>
+                  Cancel
+                </Button>
+              </form>
+            </Modal.Body>
+          </Modal>
+        </div>
+      )}
     </div>
   );
 };

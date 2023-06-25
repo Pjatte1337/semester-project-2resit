@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Moment from "react-moment";
 import Api from "../api/constants";
 import Loader from "../assets/loader/loader.gif";
 import DeletePost from "./DeletePost";
 import UpdatePost from "./UpdatePost";
 import Navbar from "../components/Navbar";
+import "../style/Buttons.css";
+import "../style/DeletePost.css";
 
 const Posts = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
@@ -54,11 +57,18 @@ const Posts = () => {
 
   const filteredPosts = filterPosts();
 
+  const handleReadMore = (postId) => {
+    navigate(`/post/${postId}`);
+  };
+
   return (
     <>
       <Navbar />
       {error && (
-        <div className="alert alert-danger" dangerouslySetInnerHTML={{ __html: error }} />
+        <div
+          className="alert alert-danger"
+          dangerouslySetInnerHTML={{ __html: error }}
+        />
       )}
       <div className="search-container mt-3">
         <input
@@ -93,15 +103,14 @@ const Posts = () => {
               </div>
               <div className="card-footer">
                 <Moment fromNow>{post.date}</Moment>
-                <Link
-                  to={`/post/${post.id}`}
-                  className="btn btn-secondary float-right"
-                  style={{ textDecoration: "none" }}
+                <button
+                  className="btn-read-more"
+                  onClick={() => handleReadMore(post.id)}
                 >
                   Read More...
-                </Link>
-                <DeletePost postId={post.id} />
+                </button>
                 <UpdatePost postId={post.id} />
+                <DeletePost postId={post.id} />
               </div>
             </div>
           ))}

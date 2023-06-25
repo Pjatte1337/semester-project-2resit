@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { isLoggedIn } from "./functions";
 import AppContext from "./context/AppContext";
@@ -7,6 +7,7 @@ import "../style/Navbar.css";
 
 const Navbar = () => {
   const [store, setStore] = useContext(AppContext);
+  const [menuOpen, setMenuOpen] = useState(false); // New
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -20,12 +21,21 @@ const Navbar = () => {
     window.location.href = '/';
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className="navbar">
       <NavLink to="/" exact className="navbar-brand">
-        <img src={logoImage} alt="Logo" className="logo-image" />
+        {!menuOpen && <img src={logoImage} alt="Logo" className="logo-image" />} {/* Updated */}
       </NavLink>
-      <ul className="nav-links">
+      <button className={`menu-toggle ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
         <li className="nav-item">
           <NavLink to="/" exact>
             Home
