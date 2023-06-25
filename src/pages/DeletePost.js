@@ -68,7 +68,7 @@ const DeletePost = ({ postId }) => {
           centered
         >
           <Modal.Dialog className="delete-modal-dialog">
-            <Modal.Header closeButton className="delete-modal-header">
+            <Modal.Header className="delete-modal-header">
               <Modal.Title className="delete-modal-title">Confirm Deletion</Modal.Title>
             </Modal.Header>
             <Modal.Body className="delete-modal-body">Are you sure you want to delete this post?</Modal.Body>
