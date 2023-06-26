@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-body {
-	height: 100vh;
+
+html {
+	height: 100%;
+  }
+
+  body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 	margin: 0;
 	padding: 0;
   }
@@ -28,9 +35,6 @@ a:focus {
 	min-height: 100vh;
   }
   
-.post-container {
-	flex-grow: 1;
-  }
   
 
 
@@ -83,23 +87,6 @@ a:focus {
 
 
 
-.post-content img{
-	width: 100%;
-}
-
-.main-navbar {
-	background-color: #50b8dc;
-	display: flex;
-	justify-content: flex-end;
-}
-
-.main-content {
-	padding: 0 24px;
-}
-
-.sidebar-header .nav-link {
-	font-size: 24px !important;
-}
 
 @media only screen and (max-width: 1020px) {
 
@@ -112,91 +99,9 @@ a:focus {
 	}
 }
 
-/* posts */
-.post-wrapper {
-	background-color: #fff;
-	margin-bottom: 36px;
-	padding: 24px 36px;
-}
 
-.post-title {
-	margin-bottom: 16px;
-	color: #00528a;
-	font-size: 36px;
-	display: inline-block;
-}
 
-.post-wrapper img {
-	width: 100%;
-	height: auto;
-}
 
-.post-excerpt {
-	color: #4a4a4a;
-}
-
-.post-meta {
-	display: flex;
-	padding: 24px 0;
-}
-
-.post-meta > * {
-	padding-right: 16px;
-}
-
-.post-meta > * > i {
-	padding-right: 10px;
-}
-
-.pagination {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	margin: 36px 0 64px 0;
-}
-
-.page-no {
-	padding: 8px 10px;
-	background-color: #fff;
-	border: 2px solid #f3f4f4;
-	margin: 0 8px;
-	width: 50px;
-	height: 50px;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	transition: 0.3s;
-}
-
-.page-no.active {
-	font-weight: 800;
-	background-color: #00528a;
-	color: #fff;
-}
-
-.prev,
-.next {
-	padding: 8px 10px;
-	background-color: #00528a;
-	color: #fff;
-	border: 2px solid #f3f4f4;
-	margin: 0 8px;
-	width: 100px;
-	height: 50px;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.page-no:hover {
-	background-color: #00528a;
-	color: #fff;
-}
-
-.prev:hover,
-.next:hover {
-	color: #50b8dc;
-}
 
 /*Post Loader css*/
 @keyframes gradientBG {

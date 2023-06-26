@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import Moment from "react-moment";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "../style/SinglePost.css";
 import "../style/GlobalStyle.css";
 import "../style/Footer.css";
@@ -41,7 +41,7 @@ const Post = () => {
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="post-container">
         {post && Object.keys(post).length ? (
-          <React.Fragment>
+          <>
             {/* Title */}
             <h1 className="title">{post.title.rendered}</h1>
             {/* Body */}
@@ -53,7 +53,7 @@ const Post = () => {
             <div className="post-footer">
               <Moment format="MMMM Do, YYYY">{post.date}</Moment>
             </div>
-          </React.Fragment>
+          </>
         ) : (
           <div>{!loading && <div>Loading...</div>}</div>
         )}

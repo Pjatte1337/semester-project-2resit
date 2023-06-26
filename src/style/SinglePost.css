@@ -1,26 +1,32 @@
 .post-container {
-  margin: 20px auto; /* Center the container horizontally */
-  padding: 20px 0; /* Add padding to the top and bottom only */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+  margin: 20px auto;
+  padding: 20px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 80%; /* Set the width to 80% */
-  
+  width: 80%;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  flex-grow: 1;
 }
 
 .post-container h1 {
-  margin: 10px 40px; /* Add margin to the h1 element */
+  margin: 10px 40px 5px;
   font-family: 'Roboto slab';
 }
 
 .post-container p {
-  margin: 15px 40px; /* Add margin to the top and bottom */
+  margin: 5px 40px;
   font-family: 'Roboto';
 }
 
-.post-footer time {
-  margin: 15px 40px; /* Add margin to the top and bottom */
+.post-footer {
+  margin: 5px 40px;
   font-weight: bolder;
   font-family: 'Roboto slab';
 }

@@ -16,16 +16,8 @@
   background-color: white;
   margin-right: 15px;
 }
-.btn-read-more:hover ,
-.btn-delete:hover ,
-.btn-update:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
- }
 
 
- 
  .btn-delete-confirm{
   position: relative;
   font-size: 14px;
@@ -82,8 +74,13 @@
 }
 
 .btn-delete-confirm:hover, 
-.btn-delete-cancel:hover {
+.btn-delete-cancel:hover,
+.btn-read-more:hover ,
+.btn-delete:hover ,
+.btn-update:hover,
+.btn-login:hover,
+.btn-update2:hover,
+.btn-create:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }

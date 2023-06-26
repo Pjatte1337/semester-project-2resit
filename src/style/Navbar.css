@@ -116,6 +116,10 @@
   .nav-links.open {
     opacity: 1;
     visibility: visible;
+    position: absolute;
+    top: 30px;
+    justify-content: center; /* Added */
+    align-items: center; /* Added */
   }
 
   .nav-item {
