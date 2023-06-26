@@ -1,8 +1,8 @@
 # Semester Project 2 Resit
 
 ## CodeCyclopedia
-- [![Netlify Status]() 
-- [Hosted application demo link]()
+- [![Netlify Status](https://api.netlify.com/api/v1/badges/f6ec4269-cb52-4ca3-9ad8-96543dce67b4/deploy-status)](https://app.netlify.com/sites/codecyclopedia/deploys)
+- [Hosted application demo link](https://codecyclopedia.netlify.app/)
 
 ![image](https://github.com/Pjatte1337/semeste-project-2resit/blob/dev/src/assets/img/readme.png)
 
