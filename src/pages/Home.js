@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Moment from 'react-moment';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import Loader from '../assets/loader/loader.gif';
-import Api from '../api/constants';
-import '../style/GlobalStyle.css';
-import '../style/Navbar.css';
-import '../style/Home.css';
-import '../style/Buttons.css';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Moment from "react-moment";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Loader from "../assets/loader/loader.gif";
+import Api from "../api/constants";
+import "../style/GlobalStyle.css";
+import "../style/Navbar.css";
+import "../style/Home.css";
+import "../style/Buttons.css";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
-  const [error, setError] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [error, setError] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetchPosts();
@@ -24,14 +24,14 @@ const Home = () => {
     const wordPressSiteURL = Api.siteUrl;
 
     setLoading(true);
-    setError('');
+    setError("");
 
     fetch(`${wordPressSiteURL}/wp-json/wp/v2/posts/`)
       .then((res) => {
         if (res.ok) {
           return res.json();
         } else {
-          throw new Error('No Posts Found');
+          throw new Error("No Posts Found");
         }
       })
       .then((data) => {
@@ -46,7 +46,7 @@ const Home = () => {
   };
 
   const filterPosts = () => {
-    if (searchQuery.trim() === '') {
+    if (searchQuery.trim() === "") {
       return posts;
     }
 
@@ -85,7 +85,7 @@ const Home = () => {
             <div
               key={post.id}
               className="card border-dark mb-3"
-              style={{ maxWidth: '50rem' }}
+              style={{ maxWidth: "50rem" }}
             >
               <div className="card-header">
                 <Link
@@ -95,20 +95,16 @@ const Home = () => {
                   {post.title.rendered}
                 </Link>
               </div>
+              <Link to={`/post/${post.id}`}>
               <div className="card-body">
                 <div
                   className="card-text post-content"
                   dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                />
-              </div>
+                ></div>
+              </div>    
+              </Link>
               <div className="card-footer">
                 <Moment format="MMMM Do, YYYY">{post.date}</Moment>
-                <Link
-                  to={`/post/${post.id}`}
-                  className="btn-read-more "
-                >
-                  Read More...
-                </Link>
               </div>
             </div>
           ))}

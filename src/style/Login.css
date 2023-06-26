@@ -1,35 +1,41 @@
 .center {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
+  text-align: center;
+  margin-top: 50px;
+}
+
+.login-card {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 80px;
+  height: 350px; /* Adjust the height as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Added border-radius */
+  background-color: #fff;
+  font-family: 'Roboto slab';
+  font-size: 25px;
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+}
+
+.login-card-body {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
   .login-card {
-    max-width: 400px;
-    margin: 0 auto;
-    margin-top: 80px;
-    height: 350px; /* Adjust the height as needed */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px; /* Added border-radius */
-    background-color: #fff;
-    font-family: 'Roboto slab';
-    font-size: 25px;
+    max-width: 80%;
+    margin-top: 40px;
+    height: auto;
   }
-  
-  .card-title {
-    margin-bottom: 0.5rem;
-  }
-  
-  .login-card-body {
-    width: 100%;
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  
+}

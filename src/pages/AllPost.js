@@ -6,8 +6,6 @@ import Loader from "../assets/loader/loader.gif";
 import DeletePost from "./DeletePost";
 import UpdatePost from "./UpdatePost";
 import Navbar from "../components/Navbar";
-import "../style/Buttons.css";
-import "../style/DeletePost.css";
 import Footer from '../components/Footer';
 
 const Posts = () => {
@@ -100,16 +98,11 @@ const Posts = () => {
                 <div
                   className="card-text post-content"
                   dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                  onClick={() => handleReadMore(post.id)}
                 />
               </div>
               <div className="card-footer">
                 <Moment fromNow>{post.date}</Moment>
-                <button
-                  className="btn-read-more"
-                  onClick={() => handleReadMore(post.id)}
-                >
-                  Read More...
-                </button>
                 <UpdatePost postId={post.id} />
                 <DeletePost postId={post.id} />
               </div>

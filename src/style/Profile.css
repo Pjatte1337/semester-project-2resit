@@ -1,11 +1,11 @@
-/* Dashboard.css */
-
 .center-content {
   max-width: 70%;
   margin: 0 auto;
   padding: 20px;
   margin-top: 60px;
 }
+
+
 
 .welcome-heading {
   font-size: 24px;
@@ -17,4 +17,12 @@
 p {
   margin-bottom: 10px;
   font-family: 'Roboto';
+}
+
+
+@media (max-width: 600px) {
+  .center-content {
+    max-width: 90%;
+    margin-top: 30px;
+  }
 }

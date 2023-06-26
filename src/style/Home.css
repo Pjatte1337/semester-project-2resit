@@ -92,14 +92,14 @@
   bottom: 0;
   width: 100%;
   font-family: 'Roboto slab';
+  font-size: 14px; /* Adjust the font size as desired */
 }
 
 .card-footer time {
   color: #fff;
   font-weight: bold;
+  font-size: 14px; /* Add a font size for smaller screens */
 }
-
-
 
 /* Media query for smaller screen sizes */
 @media (max-width: 600px) {
@@ -116,8 +116,20 @@
 
   .card {
     height: auto; /* Set the height to auto to allow variable card height */
-    width: 90%
+    width: 90%;
   }
 
+  .card-text.post-content {
+    height: 100px;
+  }
   
+  .card-footer {
+    height: auto; /* Set the height to auto for responsive height */
+    padding: 5px; /* Reduce the padding for smaller screens */
+    font-size: 12px; /* Adjust the font size for smaller screens */
+    position: static; /* Remove the absolute positioning */
+  }
+  .card-footer time {
+    font-size: 10px; /* Adjust the font size for smaller screens */
+  }
 }

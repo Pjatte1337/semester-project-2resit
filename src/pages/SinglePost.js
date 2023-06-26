@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../style/SinglePost.css";
 import "../style/GlobalStyle.css";
-import "../style/Footer.css";
 
 const Post = () => {
   const { id } = useParams();

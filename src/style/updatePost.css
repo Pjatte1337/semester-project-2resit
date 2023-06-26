@@ -2,9 +2,9 @@
   width: 80%;
   max-width: 800px;
   max-height: 700px;
-  margin: 0 auto;
-  position: absolute;
-  top: 54%;
+  margin: auto;
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
@@ -16,6 +16,7 @@
   font-size: 25px;
   font-weight: bold;
 }
+
 
 .modal-auto .modal-content {
   height: 80vh;
@@ -71,4 +72,19 @@ textarea {
 .modal-backdrop.show {
   opacity: 1;
   visibility: visible;
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .modal-auto {
+    width: 90%;
+    max-width: 400px;
+    max-height: 650px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+  }
 }
