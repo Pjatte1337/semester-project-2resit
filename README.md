@@ -1,8 +1,8 @@
 # Semester Project 2 Resit
 
 ## CodeCyclopedia
-- [![Netlify Status](https://api.netlify.com/api/v1/badges/de73a66e-c5c0-4503-b176-f42247bc3b0a/deploy-status)](https://app.netlify.com/sites/holidaze-pe-2/deploys) 
-- [Hosted application demo link](https://holidaze-pe-2.netlify.app/)
+- [![Netlify Status]() 
+- [Hosted application demo link]()
 
 ![image](https://github.com/Pjatte1337/semeste-project-2resit/blob/dev/src/assets/img/readme.png)
 
