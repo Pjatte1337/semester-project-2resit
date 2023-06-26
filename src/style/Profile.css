@@ -5,8 +5,6 @@
   margin-top: 60px;
 }
 
-
-
 .welcome-heading {
   font-size: 24px;
   font-weight: bold;
@@ -18,7 +16,6 @@ p {
   margin-bottom: 10px;
   font-family: 'Roboto';
 }
-
 
 @media (max-width: 600px) {
   .center-content {

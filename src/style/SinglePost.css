@@ -17,18 +17,18 @@
 
 .post-container h1 {
   margin: 10px 40px 5px;
-  font-family: 'Roboto slab';
+  font-family: "Roboto slab";
 }
 
 .post-container p {
   margin: 5px 40px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 .post-footer {
   margin: 5px 40px;
   font-weight: bolder;
-  font-family: 'Roboto slab';
+  font-family: "Roboto slab";
 }
 
 .alert {
@@ -49,7 +49,7 @@
     margin-top: 20px;
     margin-bottom: 40px;
   }
-  
+
   .post-container h1,
   .post-container p,
   .post-footer {

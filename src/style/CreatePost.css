@@ -7,13 +7,13 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 90px; /* Add this line */
+  margin-top: 90px;
 }
 
 .card-body {
-  flex-grow: 1; /* Add this line */
-  display: flex; /* Add this line */
-  flex-direction: column; /* Add this line */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .create-post-title {

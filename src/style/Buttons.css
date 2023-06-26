@@ -17,11 +17,11 @@
   color: black;
   background-color: white;
   margin-right: 15px;
-  width: 75px; /* Set the desired width for the buttons */
+  width: 75px;
 }
 
-
- .btn-delete-confirm{
+.btn-delete-confirm,
+.btn-delete-cancel {
   position: relative;
   font-size: 14px;
   text-transform: uppercase;
@@ -34,26 +34,16 @@
   font-family: inherit;
   font-weight: bolder;
   color: white;
+  margin-right: 15px;
+  font-family: 'Roboto slab';
+}
+
+.btn-delete-confirm {
   background-color: red;
-  margin-right: 15px;
-  font-family: 'Roboto slab';
 }
-.btn-delete-cancel{
-  position: relative;
-  font-size: 14px;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 5px 25px;
-  display: inline-block;
-  border-radius: 6em;
-  transition: all .2s;
-  border: none;
-  font-family: inherit;
-  font-weight: bolder;
-  color: white;
+
+.btn-delete-cancel {
   background-color: grey;
-  margin-right: 15px;
-  font-family: 'Roboto slab';
 }
 
 .btn-login,
@@ -76,10 +66,10 @@
   font-family: 'Roboto slab';
 }
 
-.btn-delete-confirm:hover, 
+.btn-delete-confirm:hover,
 .btn-delete-cancel:hover,
-.btn-read-more:hover ,
-.btn-delete:hover ,
+.btn-read-more:hover,
+.btn-delete:hover,
 .btn-update:hover,
 .btn-login:hover,
 .btn-update2:hover,
@@ -87,8 +77,6 @@
   transform: translateY(-3px);
   cursor: pointer;
 }
-
-
 
 @media (max-width: 600px) {
   .btn-read-more,
