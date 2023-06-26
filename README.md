@@ -41,8 +41,8 @@ CodeCyclopedia is a web application that provides a collection of coding tutoria
 - [Design Prototype](https://www.figma.com/file/1RsIKZwLKda3mLi4AdbEnH/Resit-SP2?type=design&node-id=0-1&mode=design&t=d1UAjEjXbBonelRs-0)
 - [Style guide](https://www.figma.com/file/1RsIKZwLKda3mLi4AdbEnH/Resit-SP2?type=design&node-id=2-2&mode=design&t=d1UAjEjXbBonelRs-0)
 - [Kanban Board](https://github.com/users/Pjatte1337/projects/5/views/3)
-- [Repository link]()
-- [Hosted application demo link]()
+- [Repository link](https://github.com/Pjatte1337/semeste-project-2resit)
+- [Hosted application demo link](https://codecyclopedia.netlify.app/)
 
 ## Built With
 - [React.js](https://reactjs.org/)
