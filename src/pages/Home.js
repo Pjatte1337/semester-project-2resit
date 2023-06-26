@@ -74,7 +74,7 @@ const Home = () => {
         />
       )}
       <div className="centered-heading">
-        <h1>Semester Project</h1>
+        <h1>CodeCyclopedia</h1>
       </div>
       <div className="search-container mt-3">
         <input
