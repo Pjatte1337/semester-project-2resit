@@ -54,7 +54,7 @@ CodeCyclopedia is a web application that provides a collection of coding tutoria
 
 Clone the repo:
 ```bash
-git clone git@github.com:Pjatte1337/holidaze-exam-project.git
+git clone git@github.com:Pjatte1337/semeste-project-2resit.git
 ```
 
 ### Running
