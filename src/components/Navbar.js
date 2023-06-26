@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
+// Import React
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
+// Import components
 import { isLoggedIn } from "./functions";
 import AppContext from "./context/AppContext";
+
+// Import Styles and img
 import logoImage from "../assets/img/logo.png";
-import './style/Navbar.css';
+import "../style/Navbar.css";
 
 const Navbar = () => {
   const [store, setStore] = useContext(AppContext);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -20,24 +26,39 @@ const Navbar = () => {
     window.location.href = '/';
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className="navbar">
-      <NavLink to="/" exact="true" className="navbar-brand">
-        <img src={logoImage} alt="Logo" className="logo-image" />
+      <NavLink to="/" exact className="navbar-brand">
+        {!menuOpen && <img src={logoImage} alt="Logo" className="logo-image" />}
       </NavLink>
-      <ul className="nav-links">
+      <button className={`menu-toggle ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
         <li className="nav-item">
-          <NavLink to="/" exact="true">
+          <NavLink to="/" exact>
             Home
           </NavLink>
         </li>
         {isLoggedIn() ? (
           <React.Fragment>
             <li className="nav-item">
-              <NavLink to="/dashboard">Dashboard</NavLink>
+              <NavLink to="/profile/posts">All Posts</NavLink>
             </li>
             <li className="nav-item">
-              <button onClick={handleLogout} className="btn btn-primary mb-3" type="submit">Logout</button>
+              <NavLink to="/profile/create-post">Create Post</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/profile">Profile</NavLink>
+            </li>
+            <li className="nav-item">
+              <a href="/" onClick={handleLogout}>Logout</a>
             </li>
           </React.Fragment>
         ) : (

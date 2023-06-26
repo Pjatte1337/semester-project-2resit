@@ -1,4 +1,7 @@
+// Import Pages
 import React, { useState, useEffect } from 'react';
+
+// Import components
 import AppContext from "./AppContext";
 
 const AppProvider = (props) => {
@@ -13,7 +16,6 @@ const AppProvider = (props) => {
     const token = localStorage.getItem('token');
     const userName = localStorage.getItem('userName');
     setStore({ ...store, token, userName });
-    console.log("store", store);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

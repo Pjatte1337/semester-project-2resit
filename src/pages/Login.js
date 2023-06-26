@@ -1,22 +1,30 @@
-import React, { useContext, useState } from 'react';
-import Navbar from './Navbar';
-import { Navigate } from 'react-router-dom';
-import Loader from '../assets/loader/loader.gif';
-import clientConfig from '../client-config';
-import AppContext from './context/AppContext';
-import "../components/style/Login.css";
-import Footer from './Footer';
+// Import React
+import React, { useContext, useState } from "react";
+import { Navigate } from "react-router-dom";
+
+// Import Components
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Api from "../api/constants";
+import AppContext from "../components/context/AppContext";
+
+// Import Styles
+import "../style/Buttons.css";
+import "../style/Login.css";
+
+// Import Loader
+import Loader from "../assets/loader/loader.gif";
 
 const Login = () => {
   const [store, setStore] = useContext(AppContext);
 
   const [loginFields, setLoginFields] = useState({
-    username: '',
-    password: '',
-    userNiceName: '',
-    userEmail: '',
+    username: "",
+    password: "",
+    userNiceName: "",
+    userEmail: "",
     loading: false,
-    error: '',
+    error: "",
   });
 
   const createMarkup = (data) => ({
@@ -26,7 +34,7 @@ const Login = () => {
   const onFormSubmit = async (event) => {
     event.preventDefault();
 
-    const siteUrl = clientConfig.siteUrl;
+    const siteUrl = Api.siteUrl;
 
     const loginData = {
       username: loginFields.username,
@@ -34,26 +42,25 @@ const Login = () => {
     };
 
     setLoginFields({ ...loginFields, loading: true });
-
     try {
       const response = await fetch(`${siteUrl}/wp-json/jwt-auth/v1/token`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(loginData),
       });
 
       const data = await response.json();
 
-      if (!response.ok || typeof data.token === 'undefined') {
+      if (!response.ok || typeof data.token === "undefined") {
         throw new Error(data.message);
       }
 
       const { token, user_nicename, user_email } = data;
 
-      localStorage.setItem('token', token);
-      localStorage.setItem('userName', user_nicename);
+      localStorage.setItem("token", token);
+      localStorage.setItem("userName", user_nicename);
 
       setStore({
         ...store,
@@ -80,7 +87,7 @@ const Login = () => {
   const { username, password, error, loading } = loginFields;
 
   if (store.token) {
-    return <Navigate to="/dashboard" noThrow />;
+    return <Navigate to="/profile" noThrow />;
   } else {
     return (
       <>
@@ -92,7 +99,12 @@ const Login = () => {
         <div className="login-card">
           <div className="login-card-body">
             <h4 className="login-card-title mb-4">Login</h4>
-            {error && <div className="alert alert-danger" dangerouslySetInnerHTML={createMarkup(error)} />}
+            {error && (
+              <div
+                className="alert alert-danger"
+                dangerouslySetInnerHTML={createMarkup(error)}
+              />
+            )}
             <form onSubmit={onFormSubmit}>
               <div className="form-group">
                 <label htmlFor="username">Username:</label>
@@ -116,12 +128,12 @@ const Login = () => {
                   onChange={handleOnChange}
                 />
               </div>
-              <button className="btn btn-primary mb-3" type="submit">
+              <button className="btn-login" type="submit">
                 Login
               </button>
-              {loading && <img className="loader" src={Loader} alt="Loader" />}
             </form>
           </div>
+          {loading && <img className="loader" src={Loader} alt="Loader" />}
         </div>
         <Footer />
       </>

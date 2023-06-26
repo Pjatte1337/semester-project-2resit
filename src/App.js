@@ -1,16 +1,20 @@
+// Import React
 import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from './components/Login';
-import Dashboard from './components/dashboard/Dashboard';
-import Home from './components/Home';
-import SinglePost from './components/SinglePost';
-import CreatePost from './components/dashboard/posts/CreatePost';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Import components
 import AppProvider from './components/context/AppProvider';
-import Posts from './components/dashboard/posts/Posts';
 
+// Import Pages
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
+import Posts from './pages/AllPost';
+import CreatePost from './pages/CreatePost';
+import SinglePost from './pages/SinglePost';
 
-import Page from "./components/Page";
+// Import Styles
+import './App.css';
 
 class App extends React.Component {
   render() {
@@ -19,11 +23,10 @@ class App extends React.Component {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/page/:id" element={<Page />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/posts" element={<Posts />} />
-            <Route path="/dashboard/create-post" element={<CreatePost />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/posts" element={<Posts />} />
+            <Route path="/profile/create-post" element={<CreatePost />} />
             <Route path="/post/:id" element={<SinglePost />} />
           </Routes>
         </Router>

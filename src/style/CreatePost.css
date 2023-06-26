@@ -1,0 +1,87 @@
+.create-post-card {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-post-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: 'Roboto slab';
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.alert {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.card-body {
+  cursor: pointer;
+}
+
+.loader {
+  display: block;
+  margin: 20px auto;
+}
+
+@media (max-width: 600px) {
+  .create-post-card {
+    max-width: 80%;
+    margin-top: 90px;
+    height: 600px;
+  }
+
+  #my-post-content {
+    height: 300px;
+  }
+}
