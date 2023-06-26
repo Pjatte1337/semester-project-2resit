@@ -1,7 +1,12 @@
+// Import React
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Api from "../api/constants";
 import { Modal } from "react-bootstrap";
+
+// Import components
+import Api from "../api/constants";
+
+// Import styles
 import "../style/DeletePost.css";
 
 const DeletePost = ({ postId }) => {
@@ -22,11 +27,9 @@ const DeletePost = ({ postId }) => {
       },
     })
       .then(() => {
-        console.log("Post deleted:", postId);
         navigate("/profile");
       })
       .catch((err) => {
-        console.error("Error deleting post:", err);
       })
       .finally(() => {
         setLoading(false);

@@ -1,10 +1,18 @@
+// Import React
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Moment from "react-moment";
+
+// Import Components
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
+// Import Styles
 import "../style/SinglePost.css";
 import "../style/GlobalStyle.css";
+
+// Import Loader
+import Loader from "../assets/loader/loader.gif";
 
 const Post = () => {
   const { id } = useParams();
@@ -14,7 +22,6 @@ const Post = () => {
 
   useEffect(() => {
     const wordPressSiteUrl = "https://www.joakimvanebo.info";
-    console.log(id); // Log the value of id
 
     fetch(`${wordPressSiteUrl}/wp-json/wp/v2/posts/${id}`)
       .then((response) => {
@@ -41,14 +48,11 @@ const Post = () => {
       <div className="post-container">
         {post && Object.keys(post).length ? (
           <>
-            {/* Title */}
             <h1 className="title">{post.title.rendered}</h1>
-            {/* Body */}
             <div
               className="post-content"
               dangerouslySetInnerHTML={{ __html: post.content.rendered }}
             ></div>
-            {/* Footer */}
             <div className="post-footer">
               <Moment format="MMMM Do, YYYY">{post.date}</Moment>
             </div>
@@ -57,6 +61,7 @@ const Post = () => {
           <div>{!loading && <div>Loading...</div>}</div>
         )}
       </div>
+      {loading && <img className="loader" src={Loader} alt="Loader" />}
       <Footer />
     </div>
   );

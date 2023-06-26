@@ -1,12 +1,17 @@
+// Import React
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Moment from "react-moment";
+
+// Import components
 import Api from "../api/constants";
-import Loader from "../assets/loader/loader.gif";
 import DeletePost from "./DeletePost";
 import UpdatePost from "./UpdatePost";
 import Navbar from "../components/Navbar";
-import Footer from '../components/Footer';
+import Footer from "../components/Footer";
+
+// Import loader
+import Loader from "../assets/loader/loader.gif";
 
 const Posts = () => {
   const navigate = useNavigate();
@@ -44,7 +49,7 @@ const Posts = () => {
 
   const filterPosts = () => {
     if (searchQuery.trim() === "") {
-      return posts; // If search query is empty, return all posts
+      return posts;
     }
 
     const filteredPosts = posts.filter((post) =>

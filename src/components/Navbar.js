@@ -1,13 +1,18 @@
+// Import React
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
+// Import components
 import { isLoggedIn } from "./functions";
 import AppContext from "./context/AppContext";
+
+// Import Styles and img
 import logoImage from "../assets/img/logo.png";
 import "../style/Navbar.css";
 
 const Navbar = () => {
   const [store, setStore] = useContext(AppContext);
-  const [menuOpen, setMenuOpen] = useState(false); // New
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -28,7 +33,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <NavLink to="/" exact className="navbar-brand">
-        {!menuOpen && <img src={logoImage} alt="Logo" className="logo-image" />} {/* Updated */}
+        {!menuOpen && <img src={logoImage} alt="Logo" className="logo-image" />}
       </NavLink>
       <button className={`menu-toggle ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
         <span></span>

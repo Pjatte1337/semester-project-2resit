@@ -1,10 +1,17 @@
+// Import React
 import React, { useState } from "react";
-import Loader from "../assets/loader/loader.gif";
+
+// Import components
 import Api from "../api/constants";
 import Navbar from "../components/Navbar";
-import "../style/CreatePost.css"; // Import the CSS file
-import "../style/Buttons.css"; // Import the CSS file
-import Footer from '../components/Footer';
+import Footer from "../components/Footer";
+
+// Import Styles
+import "../style/CreatePost.css";
+import "../style/Buttons.css";
+
+// Import loader
+import Loader from "../assets/loader/loader.gif";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -70,10 +77,10 @@ const CreatePost = () => {
 
     if (name === "title") {
       setTitle(value);
-      setTitleError(""); // Clear the title error when the user types
+      setTitleError("");
     } else if (name === "content") {
       setContent(value);
-      setContentError(""); // Clear the content error when the user types
+      setContentError("");
     }
   };
 
@@ -87,7 +94,9 @@ const CreatePost = () => {
 
             {message && (
               <div
-                className={`alert ${postCreated ? "alert-success" : "alert-danger"}`}
+                className={`alert ${
+                  postCreated ? "alert-success" : "alert-danger"
+                }`}
                 dangerouslySetInnerHTML={createMarkup(message)}
               />
             )}
@@ -115,7 +124,9 @@ const CreatePost = () => {
                 id="my-post-content"
                 rows="10"
               />
-              {contentError && <div className="error-message">{contentError}</div>}
+              {contentError && (
+                <div className="error-message">{contentError}</div>
+              )}
             </div>
 
             <button type="submit" className="btn-create">

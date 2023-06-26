@@ -1,7 +1,12 @@
+// Import React
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Api from '../api/constants';
 import { Modal, Button } from 'react-bootstrap';
+
+// Import Components
+import Api from '../api/constants';
+
+// Import Styles
 import '../style/updatePost.css';
 import '../style/Buttons.css';
 
@@ -72,14 +77,12 @@ const UpdatePost = ({ postId }) => {
     })
       .then((response) => {
         if (response.ok) {
-          console.log('Post updated:', postId);
           navigate('/profile');
         } else {
           throw new Error('Failed to update post');
         }
       })
       .catch((err) => {
-        console.error('Error updating post:', err);
         setError('Failed to update post. Please try again.');
       })
       .finally(() => setLoading(false));

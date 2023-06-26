@@ -1,13 +1,20 @@
+// Import React
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+
+// Import components
 import AppProvider from './components/context/AppProvider';
+
+// Import Pages
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Posts from './pages/AllPost';
 import CreatePost from './pages/CreatePost';
 import SinglePost from './pages/SinglePost';
+
+// Import Styles
+import './App.css';
 
 class App extends React.Component {
   render() {

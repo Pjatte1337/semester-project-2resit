@@ -1,14 +1,19 @@
+// Import React
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+
+// Import components
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Loader from "../assets/loader/loader.gif";
 import Api from "../api/constants";
+
+// Import Styles
 import "../style/GlobalStyle.css";
-import "../style/Navbar.css";
 import "../style/Home.css";
-import "../style/Buttons.css";
+
+// Import Loader
+import Loader from "../assets/loader/loader.gif";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -96,12 +101,12 @@ const Home = () => {
                 </Link>
               </div>
               <Link to={`/post/${post.id}`}>
-              <div className="card-body">
-                <div
-                  className="card-text post-content"
-                  dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                ></div>
-              </div>    
+                <div className="card-body">
+                  <div
+                    className="card-text post-content"
+                    dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                  ></div>
+                </div>
               </Link>
               <div className="card-footer">
                 <Moment format="MMMM Do, YYYY">{post.date}</Moment>
