@@ -3,6 +3,8 @@ import Loader from "../assets/loader/loader.gif";
 import Api from "../api/constants";
 import Navbar from "../components/Navbar";
 import "../style/CreatePost.css"; // Import the CSS file
+import "../style/Buttons.css"; // Import the CSS file
+import Footer from '../components/Footer';
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -116,13 +118,14 @@ const CreatePost = () => {
               {contentError && <div className="error-message">{contentError}</div>}
             </div>
 
-            <button type="submit" className="submit-button">
+            <button type="submit" className="btn-create">
               Submit
             </button>
             {loading && <img className="loader" src={Loader} alt="Loader" />}
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

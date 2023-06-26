@@ -1,6 +1,7 @@
 import React from "react";
 import { getUserName } from "../components/functions";
 import Navbar from "../components/Navbar";
+import Footer from '../components/Footer';
 import "../style/Profile.css"
 
 const Profile = (props) => {
@@ -34,6 +35,7 @@ const Profile = (props) => {
           books and articles about the latest trends in software development.
         </p>
       </div>
+      <Footer/>
     </>
   );
 };

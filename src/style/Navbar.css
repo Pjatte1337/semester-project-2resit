@@ -7,6 +7,7 @@
   padding: 10px;
   background-color: #333;
   color: #fff;
+  font-family: 'Roboto slab';
 }
 
 .navbar-brand {
@@ -63,6 +64,10 @@
   list-style: none;
   align-items: center;
   order: 3;
+}
+
+.nav-links li a.active {
+  border-bottom: 2px solid #ffffff;
 }
 
 .nav-item {

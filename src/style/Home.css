@@ -1,6 +1,7 @@
 .centered-heading {
   text-align: center;
   margin-top: 50px;
+  font-family: 'Roboto slab';
 }
 
 .search-container {
@@ -18,6 +19,7 @@
   font-size: 20px;
   font-weight: bolder;
   font-style: italic;
+  font-family: 'Roboto';
 }
 
 .posts-container {
@@ -35,7 +37,7 @@
   border-radius: 5px;
   overflow: hidden;
   width: 100%;
-  height: 100%; /* Remove the fixed height for the cards */
+  height: 200px; /* Remove the fixed height for the cards */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -48,6 +50,7 @@
   padding: 10px;
   background-color: #333;
   color: #fff; /* Set the text color for the header */
+  font-family: 'Roboto slab';
 }
 
 .card-header a {
@@ -70,6 +73,14 @@
   text-decoration: none; /* Remove text decoration */
 }
 
+.card-text.post-content p{
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: #333; /* Set the text color for the card content */
+  text-decoration: none; /* Remove text decoration */
+  font-family: 'Roboto';
+}
+
 .card-footer {
   height: 25px;
   padding: 10px;
@@ -80,6 +91,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+  font-family: 'Roboto slab';
 }
 
 .card-footer time {
@@ -87,23 +99,7 @@
   font-weight: bold;
 }
 
-.card-footer .btn-secondary {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 30px; /* Increase the padding-right value */
-  margin-right: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.card-footer .btn-secondary:hover {
-  background-color: #0056b3;
-}
 
 /* Media query for smaller screen sizes */
 @media (max-width: 600px) {

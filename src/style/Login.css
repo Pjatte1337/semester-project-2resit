@@ -7,7 +7,7 @@
     max-width: 400px;
     margin: 0 auto;
     margin-top: 80px;
-    height: 400px; /* Adjust the height as needed */
+    height: 350px; /* Adjust the height as needed */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,6 +16,8 @@
     border: 1px solid #ccc;
     border-radius: 8px; /* Added border-radius */
     background-color: #fff;
+    font-family: 'Roboto slab';
+    font-size: 25px;
   }
   
   .card-title {
@@ -28,16 +30,6 @@
   
   .form-group {
     margin-bottom: 1rem;
-  }
-  
-  .btn-primary {
-    margin-top: 25px;
-    width: 100%;
-    transition: background-color 0.3s ease; /* Add transition for smooth effect */
-  }
-  
-  .btn-primary:hover {
-    background-color: #498054; /* Change background color on hover */
   }
   
   

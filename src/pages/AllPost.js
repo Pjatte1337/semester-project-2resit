@@ -8,6 +8,7 @@ import UpdatePost from "./UpdatePost";
 import Navbar from "../components/Navbar";
 import "../style/Buttons.css";
 import "../style/DeletePost.css";
+import Footer from '../components/Footer';
 
 const Posts = () => {
   const navigate = useNavigate();
@@ -119,6 +120,7 @@ const Posts = () => {
         ""
       )}
       {loading && <img className="loader" src={Loader} alt="Loader" />}
+      <Footer />
     </>
   );
 };

@@ -18,14 +18,16 @@
   }
   
   .create-post-title {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: bold;
     margin-bottom: 20px;
+    font-family: 'Roboto slab';
   }
   
   .form-group {
     margin-bottom: 20px;
   }
+
   
   label {
     font-weight: bold;
@@ -38,6 +40,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family: 'Roboto';
   }
   
   .error-message {
@@ -64,15 +67,7 @@
     color: #721c24;
   }
   
-  .submit-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+
   
   .loader {
     display: block;

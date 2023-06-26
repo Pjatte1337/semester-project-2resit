@@ -14,14 +14,15 @@
     background-color: #fff;
     border: none;
     width: 500px;
+    border-radius: 5%;
    
   }
   
   .delete-modal-header {
     justify-content: center; /* Center the text horizontally */
     border-bottom: 1px solid #dee2e6;
-    align-items: center;
-    border-bottom: 1px solid #dee2e6;
+    font-family: 'Roboto slab';
+    font-size: 25px;
   }
   
   .delete-modal-title {
@@ -31,7 +32,7 @@
   
   .delete-modal-body {
     padding: 20px;
-
+    font-family: 'Roboto';
   }
   
   .delete-modal-footer {

@@ -8,7 +8,6 @@ import Api from '../api/constants';
 import '../style/GlobalStyle.css';
 import '../style/Navbar.css';
 import '../style/Home.css';
-import '../style/Footer.css';
 import '../style/Buttons.css';
 
 const Home = () => {

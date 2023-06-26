@@ -145,10 +145,10 @@ const UpdatePost = ({ postId }) => {
                     rows="16"
                   />
                 </div>
-                <Button className="button" type="submit" disabled={loading}>
+                <Button className="btn-update2" type="submit" disabled={loading}>
                   {loading ? 'Updating...' : 'Update'}
                 </Button>
-                <Button className="button" onClick={closeModal} disabled={loading}>
+                <Button className="btn-update2" onClick={closeModal} disabled={loading}>
                   Cancel
                 </Button>
               </form>

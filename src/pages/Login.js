@@ -6,6 +6,7 @@ import Api from '../api/constants';
 import AppContext from '../components/context/AppContext';
 import "../style/Login.css";
 import Footer from '../components/Footer';
+import "../style/Buttons.css"
 
 const Login = () => {
   const [store, setStore] = useContext(AppContext);
@@ -115,7 +116,7 @@ const Login = () => {
                   onChange={handleOnChange}
                 />
               </div>
-              <button className="btn btn-primary mb-3" type="submit">
+              <button className="btn-login" type="submit">
                 Login
               </button>
               {loading && <img className="loader" src={Loader} alt="Loader" />}
