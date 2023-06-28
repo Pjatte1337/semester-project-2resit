@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Semester Project 2 Resit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## CodeCyclopedia
+- [![Netlify Status](https://api.netlify.com/api/v1/badges/f6ec4269-cb52-4ca3-9ad8-96543dce67b4/deploy-status)](https://app.netlify.com/sites/codecyclopedia/deploys)
+- [Hosted application demo link](https://codecyclopedia.netlify.app/)
 
-## Available Scripts
+![image](https://github.com/Pjatte1337/semeste-project-2resit/blob/dev/src/assets/img/readme.png)
 
-In the project directory, you can run:
+## Project Brief
+You have been tasked with creating a wiki-style website for front-end developers to store information about coding including syntax, and examples of how to create elements for a site.
+Here are a list of functional requirements:
 
-### `npm start`
+- All users should be able to see a list of posts.
+- All users should be able to search for a specific post. You can use client-side filtering, or use the search parameter on the API itself.
+- A user should be able to log in
+- A user who hasn’t logged in shouldn’t be able to edit any of the entries on the site.
+- A logged in user should be able to create a post
+- A logged in user should be able to update a post
+-A logged in user should be able to delete a post
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You should use WordPress as a headless CMS to manage the content. It’s important to note that the editing of the content should happen on the front-end built by you, not the WordPress admin panel. You need to be making PUT and POST requests yourself to maintain the content on the site, and be fetching content from the WordPress REST API.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The API that you create and serve through WordPress is one part of the project. You’re just using WordPress for the API it gives you.
 
-### `npm test`
+The second part of the project is the front-end code; a completely distinct project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Description
+CodeCyclopedia is a web application that provides a collection of coding tutorials and articles. It allows users to browse and search for posts, read detailed content, and access valuable coding resources.
 
-### `npm run build`
+## Features
+- Browse and search for coding tutorials and articles.
+- All users should be able to see a list of posts.
+- A user should be able to log in
+- A user who hasn’t logged in shouldn’t be able to edit any of the entries on the site.
+- A logged in user should be able to create a post
+- A logged in user should be able to update a post
+- A logged in user should be able to delete a post
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Resources
+- [Gantt Chart](https://github.com/users/Pjatte1337/projects/5/views/4)
+- [Design Prototype](https://www.figma.com/file/1RsIKZwLKda3mLi4AdbEnH/Resit-SP2?type=design&node-id=0-1&mode=design&t=d1UAjEjXbBonelRs-0)
+- [Style guide](https://www.figma.com/file/1RsIKZwLKda3mLi4AdbEnH/Resit-SP2?type=design&node-id=2-2&mode=design&t=d1UAjEjXbBonelRs-0)
+- [Kanban Board](https://github.com/users/Pjatte1337/projects/5/views/3)
+- [Repository link](https://github.com/Pjatte1337/semeste-project-2resit)
+- [Hosted application demo link](https://codecyclopedia.netlify.app/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Built With
+- [React.js](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com)
+- [CSS Modules](https://css-tricks.com/css-modules-part-1-need/)
+- [WordPress Headless CMS](http://www.joakimvanebo.info/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+Clone the repo:
+```bash
+git clone git@github.com:Pjatte1337/semeste-project-2resit.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running
+1. Install dependencies
+```bash
+npm ci
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Start React Application
+```bash
+npm run start 
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contributing
+If you have a suggestion that would make this better, please fork the repo and create a pull request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contact
+[My LinkedIn page](https://www.linkedin.com/in/joakim-vanebo-93a64562/)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Sources
+- [React](https://react.dev/)
+- [React Router](https://reactrouter.com/en/main)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Moment.js](https://momentjs.com/)
+- [WordPress Headless CMS](https://developer.wordpress.org/rest-api/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+[Joakim Vanebo](https://github.com/Pjatte1337) | Pjatte1337
