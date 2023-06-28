@@ -41,6 +41,10 @@ const Post = () => {
       });
   }, [id]);
 
+  const addLineBreaks = (text) => {
+    return text.split(" ").join("\n");
+  };
+
   return (
     <div className="main-container">
       <Navbar />
@@ -51,7 +55,9 @@ const Post = () => {
             <h1 className="title">{post.title.rendered}</h1>
             <div
               className="post-content"
-              dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+              dangerouslySetInnerHTML={{
+                __html: addLineBreaks(post.content.rendered),
+              }}
             ></div>
             <div className="post-footer">
               <Moment format="MMMM Do, YYYY">{post.date}</Moment>
